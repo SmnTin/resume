@@ -1,10 +1,3 @@
-%-------------------------
-% Resume in Latex
-% Author : Sourabh Bajaj
-% Website: https://github.com/sb2nov/resume
-% License : MIT
-%------------------------
-
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
@@ -67,6 +60,9 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
+\newcommand{\startList}{\begin{itemize} \small}
+\newcommand{\finishList}{\end{itemize} \vspace{-5pt}}
+
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -76,37 +72,45 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Large Semen Panenkov} & Email : \href{mailto:smn.pankv@gmail.com}{smn.pankv@gmail.com}\\
-  \href{https://github.com/SmnTin}{https://github.com/SmnTin} & Mobile : +4917684406540 \\
+  \href{https://smntin.github.io}{smntin.github.io} & Mobile : +4917684406540 \\
 \end{tabular*}
 
 
-\section{Profile}
-  Passionate student doing programming for own amusement since early childhood. Constantly learning, researching new technologies, and gaining new skills. Seeking to use the right tool in the right place. Focusing on the code quality and efficiency while keeping up with the deadlines.
+% \section{Profile}
+%   Passionate student doing programming for own amusement since early childhood. Constantly learning, researching new technologies, and gaining new skills. Seeking to use the right tool in the right place. Focusing on the code quality and efficiency while keeping up with the deadlines.
 
-
-%-----------EDUCATION-----------------
-\section{Education}
+%-----------EXPERIENCE-----------------
+\section{Work experience}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Jacobs University Bremen}{Bremen, Germany}
-      {Bachelor of Computer Science}{Sep. 2022 -- Present}
+      {JetBrains}{Remote, Germany}
+      {Research Intern at Programming Languages and Tools Lab}{Dec. 2022 -- Jun. 2023}
+      \startList
+        \item I formally specified a subset of Graph Query Language (GQL) in Coq.
+        \item I implemented and proved correctness of the query evaluation via execution plans for two reference databases: Neo4j and RedisGraph.
+        \item I developed the formalization plan for the whole project which turned into 6k lines of proofs.
+        \item I used this project for my bachelor thesis and scored 94/100.
+      \finishList
     \resumeSubheading
-      {Saint Petersburg State University}{Saint Petersburg, Russia}
-      {Bachelor of Computer Science;  \textbf{GPA:} 4.62}{Sep. 2020 -- Aug. 2022}
-    \resumeSubheading
-      {Physics and Maths School}{Tyumen, Russia}
-      {High School;  \textbf{GPA:} 5.00}{Sep. 2015 -- June 2020}
+      {Freelance}{Saint-Petersburg, Russia}
+      {C++ Developer}{Aug. 2019 -- Sep. 2019}
+      \startList
+        \item I developed a web-service that builds a route through tens of points while respecting all the timing constraints.
+        \item The solution was then integrated into a tourist trips planning mobile app.
+        \item I used a combination of dynamic programming and greedy techiniques to get a fast algorithm that gives routes that are close to optimal.
+      \finishList
   \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
-\section{Selected projects}
+\section{Selected Personal Projects}
   \resumeSubHeadingListStart
-    \resumeSubItem{\href{https://github.com/bot-mne-v-rot/high-shift-engine}{High-Shift Engine}}
-      {Data-oriented game engine designed for maintaining large dynamically changing structures of entities. A hobby project written in \textbf{C++} using \textbf{OpenGL}.}
-    \resumeSubItem{\href{https://github.com/bot-mne-v-rot/p2beer}{P2Beer}}
-      {Fully decentralized peer-to-peer desktop messenger with a curses-like interface. A hobby project written in \textbf{Kotlin}.}
-    \resumeSubItem{\href{https://github.com/SmnTin/AIst}{AIst}}
-      {Autonomous robot software that supports recognition of road lanes, traffic lights, and traffic signs as well as intelligent controlling of 4 wheels robot's chassis. Was used in various competitions in Robotics. Written in \textbf{C++} using \textbf{ROS}.}
+    \resumeSubheading
+      {\href{https://github.com/bot-mne-v-rot/high-shift-engine}{High-Shift Engine}}{}
+      {Data-oriented game engine designed for maintaining large dynamically changing structures of entities.}{Aug. 2021}
+        \startList
+          \item I was responsible for the Entity-Component-System framework.
+          \item I really had to stretch the C++20 type system to deliver the best API.
+        \finishList
     \resumeSubItem{\href{https://github.com/SmnTin/huffman-archiver}{Huffman Archiver}}
       {Archiver with canonical Huffman codes designed for fast and memory-efficient encoding and decoding of the big files. Achieved throughput is about 300 MB/s. A university assignment written in \textbf{C++}.}
     \resumeSubItem{\href{https://github.com/SmnTin/simple-type-checker/tree/system-f}{System F}}
@@ -116,39 +120,41 @@
     \resumeSubItem{\href{https://github.com/SmnTin/mtt-lang}{MTT Lang}}{Interpreter for a functional programming language with Modal Type Theory. A university project written in \textbf{OCaml}.}
   \resumeSubHeadingListEnd
 
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Jacobs University Bremen}{Bremen, Germany}
+      {Bachelor of Computer Science \textbf{GPA:} 1.79}{Sep. 2022 -- Jun. 2023}
+      \startList
+        \item \textbf{Cources}: Distributed Systems, Semantics of Programming Languages, Dependent Types
+      \finishList
+    \resumeSubheading
+      {Saint Petersburg State University}{Saint Petersburg, Russia}
+      {Bachelor of Computer Science and Mathematics}{Sep. 2020 -- Aug. 2022}
+      \startList
+        \item \textbf{Cources}: Algorithms and Data Structures, Databases, Formal Languages and Automata Theory, Mathematical Logic, Computer Architecture, Operating Systems, Discrete Mathematics, Linear Algebra
+      \finishList
+  \resumeSubHeadingListEnd
+
 %-----------ACADEMIC ACHIEVEMENTS-----------------
 \section{Academic Achievements}
   \resumeSubHeadingListStart
+    \resumeSubheading{JacobsHack Hackathon}{}
+    {Our team scored top 1 among over 100 participants.}{2023}
     \resumeSubheading{All-Russian School Olympiad in Informatics}{}
-    {2nd degree diploma in finals. There are usually several million participants over all the stages.}{2020}
-    \resumeSubheading{All-Siberia Olympiad for Schoolchildren in Informatics}{}
-    {1st degree diploma in finals.}{2020}
+    {2nd degree diploma in finals. There were several million participants over all the stages.}{2020}
     \resumeSubheading{Innopolis University Olympiad in Robotics}{}
     {Absolute winners in the Intelligent Autonomous Cars category.}{2019}
   \resumeSubHeadingListEnd
 
-%--------PROGRAMMING SKILLS------------
-\section{Programming Skills}
-  \resumeSubHeadingListStart
-    \item{
-      \textbf{Languages}{: C++, Rust, Coq, Haskell, OCaml, Kotlin, SQL }
-    }
-    \item{
-      \textbf{Technologies}{: Git, Docker, GitHub Actions, TLA+, PostgreSQL, OpenGL, OpenCV, ROS } \\
-    }
-    \item{
-      \textbf{Skills}{: Formal Methods, Software Optimization, Software Design }
-    }
-  \resumeSubHeadingListEnd
+% %--------EXTRACURRICULAR ACTIVITIES------------
+% \section{Extracurricular Activities}
+%   \resumeSubHeadingListStart
+%     \resumeSubheading{Student council member}{SPbSU}
+%       {Organizing coding events at the faculty.}{Feb. 2021 -- Feb. 2023}
+%   \resumeSubHeadingListEnd
 
-%--------EXTRACURRICULAR ACTIVITIES------------
-\section{Extracurricular Activities}
-  \resumeSubHeadingListStart
-    \resumeSubheading{Student council member}{SPbSU}
-      {Organizing coding events at the faculty.}{Feb. 2021 -- Present}
-  \resumeSubHeadingListEnd
-
-
-%-------------------------------------------
+% %-------------------------------------------
 
 \end{document}
