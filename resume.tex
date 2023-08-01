@@ -1,15 +1,36 @@
 \documentclass[letterpaper,11pt]{article}
 
-\usepackage{latexsym}
+\usepackage[noTeX]{mmap}
+\pdfinclusioncopyfonts=1
+% \usepackage[noTeX]{mmap}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[defaultsans]{lato}
+\renewcommand{\familydefault}{\sfdefault}
+% \usepackage{lato}
+% \usepackage[rm]{roboto}
+
+% \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{marvosym}
+% \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
+% \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[pdftex]{hyperref}
 \usepackage{fancyhdr}
+% \usepackage[sfdefault]{roboto}
+\usepackage{xcolor}
+% \usepackage{fontspec}
 
+% Settings for better ATS parsing
+\usepackage{microtype}
+\DisableLigatures{encoding = *, family = *}
+
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%%%
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -35,6 +56,14 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
+\definecolor{CoolBlue}{HTML}{0589f9}
+
+\hypersetup{
+  colorlinks,
+  linkcolor=CoolBlue,
+  urlcolor=CoolBlue,
+}
+
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[2]{
@@ -47,7 +76,7 @@
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
+      {\small#3} & {\small #4} \\
     \end{tabular*}\vspace{-5pt}
 }
 
@@ -72,7 +101,7 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Large Semen Panenkov} & Email : \href{mailto:smn.pankv@gmail.com}{smn.pankv@gmail.com}\\
-  \href{https://smntin.github.io}{smntin.github.io} & Mobile : +4917684406540 \\
+  \href{https://smntin.github.io}{https://smntin.github.io} & Mobile : +49 176 84406540 \\
 \end{tabular*}
 
 
@@ -86,38 +115,46 @@
       {JetBrains}{Remote, Germany}
       {Research Intern at Programming Languages and Tools Lab}{Dec. 2022 -- Jun. 2023}
       \startList
-        \item I formally specified a subset of Graph Query Language (GQL) in Coq.
-        \item I implemented and proved correctness of the query evaluation via execution plans for two reference databases: Neo4j and RedisGraph.
-        \item I developed the formalization plan for the whole project which turned into 6k lines of proofs.
-        \item I used this project for my bachelor thesis and scored 94/100.
+        \item Developed the first formal specification of the Graph Query Language (GQL) in Coq.
+        \item Implemented and proved correctness of the query evaluation via execution plans for two reference databases: Neo4j and RedisGraph.
+        % Published the first framework for formal verification of query executions via <итд>
+        \item Architected and planned the whole project, which turned into 6k lines of proofs.
+        \item Employed \href{https://github.com/cyphercert/opencypher-coq}{this project} as a bachelor's thesis, achieving a score of 94/100 and, subsequently, presenting this project at the annual graph databases community meeting in Seattle, US.
       \finishList
     \resumeSubheading
-      {Freelance}{Saint-Petersburg, Russia}
-      {C++ Developer}{Aug. 2019 -- Sep. 2019}
+      {Saint Petersburg State University}{Saint Petersburg, Russia}
+      {OCaml Developer}{Feb. 2022 -- Jun. 2022} %TODO - норм даты
       \startList
-        \item I developed a web-service that builds a route through tens of points while respecting all the timing constraints.
-        \item The solution was then integrated into a tourist trips planning mobile app.
-        \item I used a combination of dynamic programming and greedy techiniques to get a fast algorithm that gives routes that are close to optimal.
+        \item Added user-defined algebraic data types and pattern-matching to \href{https://github.com/SmnTin/mtt-lang/tree/ADT}{an interpreted functional language}, enabling the practical implementation of realistic programs.
+        \item Refactored the language syntax and the type system, making the language more pleasant to use.
+      \finishList
+    \resumeSubheading
+      {Freelance}{Saint Petersburg, Russia}
+      {C++ Developer}{Jul. 2019 -- Sep. 2019}
+      \startList
+        \item Developed \href{https://github.com/SmnTin/PathBuilder}{a web service} for constructing efficient custom travel routes through specified locations, respecting the working hours and public transit schedule, which became the main feature of a tourist trip planning mobile app.
+        \item Tightly collaborated with the customer, which resulted in reworking the original algorithm to meet the efficiency requirements by increasing the maximum number of processed locations from 10 to hundreds.
+        
       \finishList
   \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
-\section{Selected Personal Projects}
+\section{Selected projects}
   \resumeSubHeadingListStart
-    \resumeSubheading
-      {\href{https://github.com/bot-mne-v-rot/high-shift-engine}{High-Shift Engine}}{}
-      {Data-oriented game engine designed for maintaining large dynamically changing structures of entities.}{Aug. 2021}
-        \startList
-          \item I was responsible for the Entity-Component-System framework.
-          \item I really had to stretch the C++20 type system to deliver the best API.
-        \finishList
+    \resumeSubItem{\href{https://github.com/SmnTin/lincheck}{Lincheck}}
+      {A \textbf{Rust} library for testing concurrent data structures for adherence to a sequential specification, built on top of a concurrency model-checker and property-based testing framework.}
+    \resumeSubItem{\href{https://github.com/bot-mne-v-rot/high-shift-engine}{High-Shift Engine}}
+      {A data-oriented game engine in \textbf{C++20} designed for maintaining large changing structures of entities. Leveraged advanced type system features to provide the most flexible API.}
+    \resumeSubItem{\href{https://github.com/SmnTin/bachero}{Bachero}}
+      {A 2d game engine based on SDL2 in \textbf{C++17} with a custom heavily-optimized physics engine, handling thousands of moving objects while keeping the frame rate above 60.}
     \resumeSubItem{\href{https://github.com/SmnTin/huffman-archiver}{Huffman Archiver}}
-      {Archiver with canonical Huffman codes designed for fast and memory-efficient encoding and decoding of the big files. Achieved throughput is about 300 MB/s. A university assignment written in \textbf{C++}.}
+      {An archiver with canonical Huffman codes in \textbf{C++17} designed for fast and memory-efficient encoding and decoding of big files. Achieved throughput is about 300 MB/s on x86.}
+    \resumeSubItem{\href{https://github.com/SmnTin/AIst}{AIst}}
+      {The embedded software in \textbf{C++11} for an autonomous robot based on NVidia Jetson 2, controlled by a stack-based state machine, which supports recognition of the lane, traffic signs and traffic lights.}
     \resumeSubItem{\href{https://github.com/SmnTin/simple-type-checker/tree/system-f}{System F}}
-      {Type checker for Church-style Polymorphic Lambda Calculus (System F). An assignment written in \textbf{Haskell}.}
-    \resumeSubItem{\href{https://github.com/SmnTin/prog-2020-text-index-SmnTin}{Text Index}}
-      {Tool that builds text index and allows for fast queries on the analyzed data.  A university assignment written in \textbf{Kotlin}.}
-    \resumeSubItem{\href{https://github.com/SmnTin/mtt-lang}{MTT Lang}}{Interpreter for a functional programming language with Modal Type Theory. A university project written in \textbf{OCaml}.}
+      {A type checker in \textbf{Haskell} for Church-style Polymorphic Lambda Calculus (System F). Covered parsing, type checking and pretty-printing with 120 unit tests.}
+    % \resumeSubItem{\href{https://github.com/SmnTin/prog-2020-text-index-SmnTin}{Text Index}}
+    %   {A tool in \textbf{Kotlin}, built with clean architecture principles in mind, that provides fast text indexing and querying.}
   \resumeSubHeadingListEnd
 
 %-----------EDUCATION-----------------
@@ -125,27 +162,27 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Jacobs University Bremen}{Bremen, Germany}
-      {Bachelor of Computer Science \textbf{GPA:} 1.79}{Sep. 2022 -- Jun. 2023}
+      {Bachelor of Computer Science \textbf{GPA:} B+}{Sep. 2022 -- Jun. 2023}
       \startList
-        \item \textbf{Cources}: Distributed Systems, Semantics of Programming Languages, Dependent Types
+        \item \textbf{Courses}: Distributed Systems, Semantics of Programming Languages, Dependent Types, Game Theory
       \finishList
     \resumeSubheading
       {Saint Petersburg State University}{Saint Petersburg, Russia}
-      {Bachelor of Computer Science and Mathematics}{Sep. 2020 -- Aug. 2022}
+      {Bachelor of Computer Science and Mathematics \textbf{GPA:} B+}{Sep. 2020 -- Aug. 2022}
       \startList
-        \item \textbf{Cources}: Algorithms and Data Structures, Databases, Formal Languages and Automata Theory, Mathematical Logic, Computer Architecture, Operating Systems, Discrete Mathematics, Linear Algebra
+        \item \textbf{Courses}: Computer Architecture, Operating Systems, Algorithms and Data Structures, Linear Algebra, Discrete Mathematics, Databases, Theoretical Informatics, Mathematical Analysis, Probability Theory
       \finishList
   \resumeSubHeadingListEnd
 
 %-----------ACADEMIC ACHIEVEMENTS-----------------
-\section{Academic Achievements}
+\section{Academic achievements}
   \resumeSubHeadingListStart
-    \resumeSubheading{JacobsHack Hackathon}{}
-    {Our team scored top 1 among over 100 participants.}{2023}
+    % \resumeSubheading{JacobsHack Hackathon}{}
+    % {1/100 absolute winner with a team of 4 people}{2023}
     \resumeSubheading{All-Russian School Olympiad in Informatics}{}
-    {2nd degree diploma in finals. There were several million participants over all the stages.}{2020}
+    {Top 200 prize winner in the finals out of millions participants}{May 2020}
     \resumeSubheading{Innopolis University Olympiad in Robotics}{}
-    {Absolute winners in the Intelligent Autonomous Cars category.}{2019}
+    {1/20 absolute winner in the Intelligent Autonomous Cars category.}{Jun. 2019}
   \resumeSubHeadingListEnd
 
 % %--------EXTRACURRICULAR ACTIVITIES------------
